@@ -1,5 +1,6 @@
 # Coding Challenge
 Node v22.18.0 were used
+
 Before running make sure that you install all dependecies 
 
 First run `npm i` 
