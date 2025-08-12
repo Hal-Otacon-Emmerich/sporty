@@ -1,0 +1,10 @@
+.searchbar {
+    border-radius: 15px 0 0 15px;
+    border: 1px solid black;
+    border-right: none;
+    padding-left: 10px;
+}
+
+.searchbar:focus-visible {
+    outline: none;
+}

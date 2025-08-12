@@ -1,3 +1,5 @@
+import './Table.css';
+
 export const LeagueTable = ({
     leagues,
     search,
@@ -20,17 +22,18 @@ export const LeagueTable = ({
         )
       )
     }
-    /////// this part was done after 90 minutes
-    ///// too much requests ?????
+    ///// this part was done after 90 minutes
     // async function getBadge(id) {
+
     //   const response = await fetch(`https://www.thesportsdb.com/api/v1/json/3/search_all_seasons.php?badge=1&id=${id}`);
     //   const json = await response.json();
-    //   return json[json.length - 1].strBadge;
+    //   const badge = json[json.length - 1].strBadge;
+    //   return badge;
     // }
-    /////////////////
+    ///////////////
   if(leagues) {
     return ( 
-      <table>
+      <table className="table">
         <thead>
           <tr>
             {/* <th>Badge</th> */}
