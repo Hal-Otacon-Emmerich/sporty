@@ -5,14 +5,20 @@ import { SearchBar } from './components/SearchBar/SearchBar';
 import { Dropdown } from './components/Dropdown/Dropdown';
 
 function App() {
-  const [leagues, setLeagues] = useState(null);
+  const [leagues, setLeagues] = useState(() => {
+    const cachedData = localStorage.getItem("apiLeagues");
+    return cachedData ? JSON.parse(cachedData) : null;
+  });
   const [search, setSearch] = useState('');
   const [sportsType, setSportsType] = useState('');
 
   async function getLeagues() {
-    const responce = await fetch('https://www.thesportsdb.com/api/v1/json/3/all_leagues.php');
-    let json = await responce.json()
-    setLeagues(json)
+    if(!leagues) {
+      const response = await fetch('https://www.thesportsdb.com/api/v1/json/3/all_leagues.php');
+      let json = await response.json()
+      setLeagues(json)
+      localStorage.setItem("apiLeagues", JSON.stringify(json));
+    }
   }
 
   useEffect(() => {
